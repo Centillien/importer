@@ -10,7 +10,7 @@ function importer_init() {
 
 	elgg_register_page_handler('import', 'importer_page_handler');
 	elgg_extend_view('invitefriends/form', 'link', 2);
-
+    elgg_extend_view('css/elgg', 'importer/css');
 	if (elgg_is_logged_in()) {
 		$params = array(
 			'name' => 'import',
