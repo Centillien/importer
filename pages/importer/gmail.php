@@ -8,8 +8,8 @@
 $user = elgg_get_logged_in_user_entity();
 $site_name =  elgg_get_site_entity()->name;
 
-$OAUTH2_CLIENT_ID = '960602716554.apps.googleusercontent.com';
-$OAUTH2_CLIENT_SECRET = 'j8EBYiWLdTFxdypCP6gVRcFl';
+$OAUTH2_CLIENT_ID = '';
+$OAUTH2_CLIENT_SECRET = '';
 
 $client = new Google_Client();
 $client->setClientId($OAUTH2_CLIENT_ID);
