@@ -29,24 +29,23 @@ function importer_init() {
 	}
 }
 function importer_page_handler($page) {
-	gatekeeper();
-	elgg_set_context('friends');
-	elgg_set_page_owner_guid(elgg_get_logged_in_user_guid());
+        gatekeeper();
         $pages = dirname(__FILE__) . '/pages/importer';
+
+         if (!isset($page[0])) {
+                $page[0] = 'all';
+        }
+
         switch ($page[0]) {
                 case "gmail":
-                        gatekeeper();
                         include "$pages/gmail.php";
                         break;
-                case "default":
-		        $title = elgg_echo('import:contacts');
-		        $body = elgg_view('importer/form');
-        		$params = array(
-                		'content' => $body,
-                		'title' => $title,
-       			 );
-        		$body = elgg_view_layout('one_sidebar', $params);
-        		echo elgg_view_page($title, $body);
+               case "linkedin":
+                        include "$pages/linkedin.php";
+                        break;
+                case "all":
+                        include "$pages/all.php";
+                        break;
         }
         return true;
 }
