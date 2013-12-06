@@ -15,5 +15,10 @@
 		<type>plugin</type>
 		<name>invitefriends</name>
 	</requires>
+        <requires>
+                <type>plugin</type>
+                <name>elgg_social_login</name>
+                <version>1.1</version>
+        </requires>
 	<activate_on_install>true</activate_on_install>
 </plugin_manifest>
