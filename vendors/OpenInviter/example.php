@@ -14,7 +14,7 @@ function ers($ers)
 	{
 	if (!empty($ers))
 		{
-		$contents="<table cellspacing='0' cellpadding='0' style='border:1px solid red;' align='center'><tr><td valign='middle' style='padding:3px' valign='middle'><img src='_graphics/ers.gif'></td><td valign='middle' style='color:red;padding:5px;'>";
+		$contents="<table cellspacing='3' cellpadding='3' style='border:1px solid red;' align='center'><tr><td valign='middle' style='padding:3px' valign='middle'><img src='_graphics/ers.gif'></td><td valign='middle' style='color:red;padding:5px;'>";
 		foreach ($ers as $key=>$error)
 			$contents.="{$error}<br >";
 		$contents.="</td></tr></table><br >";
@@ -26,7 +26,7 @@ function oks($oks)
 	{
 	if (!empty($oks))
 		{
-		$contents="<table border='0' cellspacing='0' cellpadding='10' style='border:1px solid #0054A7;' align='center'><tr><td valign='middle' valign='middle'><img src='/mod/importer/vendors/OpenInviter/images/oks.gif' ></td><td valign='middle' style='color:#0054A7;padding:5px;'>	";
+		$contents="<table border='0' cellspacing='3' cellpadding='10' style='border:1px solid #0054A7;' align='center'><tr><td valign='middle' valign='middle'><img src='/mod/importer/vendors/OpenInviter/images/oks.gif' ></td><td valign='middle' style='color:#0054A7;padding:5px;'>	";
 		foreach ($oks as $key=>$msg)
 			$contents.="{$msg}<br >";
 		$contents.="</td></tr></table><br >";
@@ -108,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
 				{
 				$message_footer="\r\n\r\nThis invite was sent by a registered member on $site_name. This service is powered by http://centillien.com";
 				$message_subject=$_POST['email_box'].$message['subject'];
+				//$message_subject= $inviter->settings['username'].$message['subject'];
 				$message_body=$message['body'].$message['attachment'].$message_footer; 
 				$headers="From: {$_POST['email_box']}";
 				foreach ($selected_contacts as $email=>$name)
@@ -147,7 +148,7 @@ if (!$done)
 	{
 	if ($step=='get_contacts')
 		{
-		$contents.="<table align='center' class='thTable' cellspacing='2' cellpadding='0' style='border:none;'>
+		$contents.="<table align='center' class='thTable' cellspacing='2' cellpadding='3' style='border:none;'>
 			<tr class='thTableRow'><td align='right'><label for='email_box'>Email</label></td><td><input class='thTextbox' type='text' name='email_box' value='{$_POST['email_box']}'></td></tr>
 			<tr class='thTableRow'><td align='right'><label for='password_box'>Password</label></td><td><input class='thTextbox' type='password' name='password_box' value='{$_POST['password_box']}'></td></tr>
 			<tr class='thTableRow'><td align='right'><label for='provider_box'>Email provider</label></td><td><select class='thSelect' name='provider_box'><option value=''></option>";
@@ -163,7 +164,7 @@ if (!$done)
 		</table><input type='hidden' name='step' value='get_contacts'>";
 		}
 	else
-		$contents.="<table class='thTable' cellspacing='0' cellpadding='0' style='border:none;'>
+		$contents.="<table class='thTable' cellspacing='0' cellpadding='3' style='border:none;'>
 				<tr class='thTableRow'><td align='right' valign='top'><label for='message_box'>Personal Note:*</label></td><td><textarea rows='5' cols='50' name='message_box' class='thTextArea' style='width:600px;'>{$_POST['message_box']}</textarea></td></tr>
 				<tr class='thTableRow'><td align='center' colspan='2'><input type='submit' name='send' value='Send Invites' class='thButton' ></td></tr>
 			</table>";
@@ -174,7 +175,7 @@ if (!$done)
 		{
 		if ($inviter->showContacts())
 			{
-			$contents.="<table class='thTable' align='center' cellspacing='0' cellpadding='0'><tr class='thTableHeader'><td colspan='".($plugType=='email'? "3":"2")."'>Your contacts</td></tr>";
+			$contents.="<table class='thTable' align='center' cellspacing='0' cellpadding='3'><tr class='thTableHeader'><td colspan='".($plugType=='email'? "3":"2")."'>Your contacts</td></tr>";
 			if (count($contacts)==0)
 				$contents.="<tr class='thTableOddRow'><td align='center' style='padding:20px;' colspan='".($plugType=='email'? "3":"2")."'>You do not have any contacts in your address book.</td></tr>";
 			else
@@ -185,7 +186,7 @@ if (!$done)
 					{
 					$counter++;
 					if ($odd) $class='thTableOddRow'; else $class='thTableEvenRow';
-					$contents.="<tr class='{$class}'><td><input name='check_{$counter}' value='{$counter}' type='checkbox' class='thCheckbox' checked><input type='hidden' name='email_{$counter}' value='{$email}'><input type='hidden' name='name_{$counter}' value='{$name}'></td><td>{$name}</td>".($plugType == 'email' ?"<td>{$email}</td>":"")."</tr>";
+					$contents.="<tr class='{$class}'><td><input name='check_{$counter}' value='{$counter}' type='checkbox' class='thCheckbox' checked><input type='hidden' name='email_{$counter}' value='{$email}'> <input type='hidden' name='name_{$counter}' value='{$name}'></td><td>{$name}</td>".($plugType == 'email' ?"<td>{$email}</td>":"")."</tr>";
 					$odd=!$odd;
 					}
 				$contents.="<tr class='thTableFooter'><td colspan='".($plugType=='email'? "3":"2")."' style='padding:3px;'><input type='submit' name='send' value='Send invites' class='thButton'></td></tr>";

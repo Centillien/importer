@@ -2,7 +2,9 @@
 $english = array(
     'importer:importer_code' => 'Get the API key from Openinviter <a href="http://openinviter.com">here</a> and add it below.<br/>',
     'importer:importer_name' => 'Add your username on openinviter<br/>',
+    'importer:importer_inline_icons' => 'Do you want a single icon in the invite page ?<br/>',
     'importer:gmail' => 'Import email addresses from G-Mail',
+    'importer:linkedin' => 'Show LinkedIN contacts',
     'importer:hotmail' => 'Import email addresses from Hotmail / Live mail',
     'importer:yahoo' => 'Import email addresses from Yahoo Mail',
     'importer:email-provider-link' => '<b>You can also invite friends using a web-mail service:</br>(currently <i>yahoo, gmail or hotmail</i>):</b>',
@@ -27,13 +29,13 @@ $english = array(
     'importer:email_provider' => 'E-mail service: ',
     'importer:error_sending' => "There were errors while sending your invites.<br>Please try again later!",
     'importer:sent_success' => "Mails sent successfully",
-    'importer:footer' => "This invite was sent by a registered member on %s",
+    'importer:footer' => "This invite was sent by a registered member on %s, powered by http://www.centillien.com",
     'importer:email_subject' => ": You are invited to join %s",
     'import:contacts' => 'Import and invite business contacts',
     'import:remark'=> '<strong>Remark:</strong> %s will not save the contacts, nor will we sent out messages to any of your contacts without you explicitly clicking the "Send Invite" button<br><br>',
     'import:helptext' => 'Fill in the email address of your provider and we will show your contacts. Then select the contacts you want to invite. We will sent a standard message to your partners <br><br>
 A maximum of 200 connections can be invited at once.<br><br>',
-    'invite:message' => 'Dear friend,
+    'invite:message' => 'Dear Friend,
 
 %s invites you to join %s.
 

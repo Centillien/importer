@@ -43,7 +43,7 @@ function importer_page_handler($page) {
                case "linkedin":
                         include "$pages/linkedin.php";
                         break;
-                case "all":
+               case "all":
                         include "$pages/all.php";
                         break;
         }
